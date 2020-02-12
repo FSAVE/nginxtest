@@ -1,7 +1,7 @@
 node('master') {
 
     stage('download from git') {
-       echo "Скачиваем репозиторий с конфигурациями для конкретной ФП."
+       echo "Скачиваем репозиторий"
        checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/FSAVE/nginxtest.git"]]])
     }
 
@@ -19,9 +19,9 @@ node('master') {
                 error("Установка провалена, смотри лог!")
             }
         } catch(Ex) {
-          echo "${Ex.toString()}"
-          currentBuild.result = "FAILED"
-          error ("Установка провалена, смотри лог!")
+            echo "${Ex.toString()}"
+            currentBuild.result = "FAILED"
+            error ("Установка провалена, смотри лог!")
         }
     }
 }
