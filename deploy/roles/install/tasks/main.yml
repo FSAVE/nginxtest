@@ -9,5 +9,7 @@
     name: nginx
     state: latest
     update_cache: true
+  become: yes
+  remote_user: root
   notify:
     - start nginx, httpd
