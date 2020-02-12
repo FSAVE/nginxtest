@@ -9,12 +9,3 @@
     update_cache: true
   notify:
     - start nginx, httpd
-
-- handlers:
-  - name: start nginx, httpd
-    service:
-      name:
-        - nginx
-        - httpd
-      enables: yes
-      state: started

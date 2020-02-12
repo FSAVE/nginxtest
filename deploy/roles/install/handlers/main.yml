@@ -1,0 +1,7 @@
+- name: start nginx, httpd
+  service:
+    name:
+      - nginx
+      - httpd
+    enables: yes
+    state: started
