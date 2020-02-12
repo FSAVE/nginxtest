@@ -10,7 +10,7 @@ node('master') {
             def result
             timestamps {
                 echo "Используем ansible-playbook ${command}.yml"
-                result = sh(script: "ansible-playbook -i ./inventories/hosts ./deploy/${command}.yml -b", returnStatus: true)
+                result = sh(script: "ansible-playbook -i ./inventories/hosts ./deploy/${command}.yml -vvvv", returnStatus: true)
             }
             if(result==0) {
                 echo "Установка выполнена успешно result: ${result}"
