@@ -5,10 +5,10 @@
 - name: Install nginx web server
   yum:
     name: nginx
-    state: installed
+    state: latest
     update_cache: true
   notify:
-    - start nginx
+    - start nginx, httpd
 
 
 handlers:
