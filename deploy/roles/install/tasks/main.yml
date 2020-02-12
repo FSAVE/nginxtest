@@ -10,7 +10,6 @@
   notify:
     - start nginx, httpd
 
-
 handlers:
   - name: start nginx, httpd
     service:
