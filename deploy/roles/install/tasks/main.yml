@@ -1,0 +1,21 @@
+---
+- name: Install EPEL release for nginx
+  yum: name=epel-release state=present
+
+- name: Install nginx web server
+  yum:
+    name: nginx
+    state: installed
+    update_cache: true
+  notify:
+    - start nginx
+
+
+handlers:
+    - name: start nginx, httpd
+      service:
+        name:
+          - nginx
+          - httpd
+        enables: yes
+        state: started
