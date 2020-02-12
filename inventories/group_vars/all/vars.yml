@@ -1,1 +1,2 @@
 ansible_ssh_user: centos
+ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'
