@@ -12,4 +12,4 @@
   become: yes
   remote_user: root
   notify:
-    - start nginx, httpd
+    - start nginx
