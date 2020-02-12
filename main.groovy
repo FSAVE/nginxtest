@@ -1,4 +1,10 @@
 node('master') {
+
+    stage('download from git') {
+       echo "Скачиваем репозиторий с конфигурациями для конкретной ФП."
+       checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/FSAVE/nginxtest.git"]]])
+    }
+
     stage('ansible nginx') {
         try {
             def result
@@ -17,6 +23,5 @@ node('master') {
           currentBuild.result = "FAILED"
           error ("Установка провалена, смотри лог!")
         }
-
     }
 }
