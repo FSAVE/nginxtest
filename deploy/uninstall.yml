@@ -1,4 +1,5 @@
 ---
-- hosts: CentOS
+- hosts: localhost
+  connection: local
   roles:
     - uninstall
