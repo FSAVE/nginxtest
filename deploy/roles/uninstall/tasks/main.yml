@@ -1,0 +1,8 @@
+---
+- name: Uninstall nginx web server
+  yum:
+    name: nginx
+    state: absent
+
+  become: yes
+  remote_user: root
