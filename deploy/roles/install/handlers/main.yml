@@ -3,3 +3,12 @@
     name: nginx
     state: started
 
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/
+
+  shell: 'nginx -s reload'
+  register: out
+
+- debug:
+    msg: '{{out.stdout_lines}}'
