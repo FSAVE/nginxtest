@@ -2,3 +2,9 @@
   copy:
     src: nginx.conf
     dest: /etc/nginx/
+
+- name: reload conf
+  shell: nginx -s reload
+  register: out
+- debug:
+    msg: '{{out.stdout_lines}}'

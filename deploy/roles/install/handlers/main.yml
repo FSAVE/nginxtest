@@ -3,3 +3,5 @@
     name: nginx
     state: started
 
+- include_role:
+    name: configure
