@@ -1,0 +1,4 @@
+- name: copy nginx config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/
