@@ -9,5 +9,7 @@
     name: nginx
     state: latest
 
-  notify:
-    - start nginx
+- name: start nginx
+  service:
+    name: nginx
+    state: started
