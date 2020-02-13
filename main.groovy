@@ -24,4 +24,16 @@ node('master') {
             error ("Установка провалена, смотри лог!")
         }
     }
+    stage('mailto') {
+        emailext (
+             mimeType: 'text/html',
+       		 attachLog: true, compressLog: true,
+             subject: "Выполнение метода ${command}.yml на '${env.JOB_NAME}' завершено",
+             body: """
+             	<th align="left">Лог выполнения</th>
+                <th align="left">${env.BUILD_URL}console</p></th>
+             """,
+             to: "likewalk@yandex.ru"
+        )
+    }
 }
