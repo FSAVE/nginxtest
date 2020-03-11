@@ -2,7 +2,12 @@ node('master') {
 
     stage('download from git') {
        echo "Скачиваем репозиторий"
-       checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/FSAVE/nginxtest.git"]]])
+       checkout([$class: 'GitSCM',
+                branches: [[name: "master"]],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [],
+                submoduleCfg: [],
+                userRemoteConfigs: [[url: "https://github.com/FSAVE/nginxtest.git"]]])
     }
 
     stage('ansible nginx') {
